@@ -1,1 +1,25 @@
 /* You can add global styles to this file, and also import other style files */
+html, body { height: 100%; }
+
+:root{
+  --rich-black: #0B1220;   /* blu-nero profondo, meno “fangoso” */
+  --rich-black-grad: linear-gradient(to bottom right, #0B1220 0%, #253147 100%);
+  --charcoal:   #364156;   /* carbone freddo, neutro e moderno */
+  --light-blue: #56718c;   /* azzurro pulito, niente grigi sporchi */
+  --text-on-dark: #E8EEF6; /* testo su sfondo scuro */
+  --text-on-light:#0B1220; /* testo su sfondo chiaro */
+}
+
+/* Stessi nomi, nuovi colori */
+.rich-black{
+  background: var(--rich-black-grad);
+  color: var(--text-on-dark);
+}
+.charcoal{
+  background: var(--charcoal);
+  color: var(--text-on-dark);
+}
+.light-blue{
+  background: var(--light-blue);
+  color: var(--text-on-light);
+}
