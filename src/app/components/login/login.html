@@ -1,20 +1,35 @@
-<div class="container-fluid h-100  rich-black text-white d-flex align-items-center justify-content-center">
+<div class="container-fluid min-vh-100  rich-black text-white d-flex align-items-center justify-content-center">
     <div class="card charcoal text-white" style="width: 30rem;">
         <div class="card-header px-3 pt-3 text-center light-blue text-white ">
             LogIn
         </div>
         <div class="card-body px-3 mb-3">
-            <div class="container-fluid mb-2">
-                <label for="email" class="form-label">Email</label>
-                <input type="email" class="form-control" placeholder="name@example.com" id="email">
-            </div>
-            <div class="container-fluid ">
-                <label for="password" class="form-label">Password</label>
-                <input type="password" class="form-control" placeholder="password" id="password">
-            </div>
-            <div class="container-fluid mt-3">
-                <input type="button"  class=" form-control btn btn-primary " value="Iniciar Sesion">
-            </div>
+            <form (ngSubmit)="onSubmit()">
+                <div class="container-fluid mb-2">
+                    <label for="email" class="form-label">Email</label>
+                    <input 
+                        type="email" 
+                        class="form-control" 
+                        placeholder="name@example.com" 
+                        id="email"
+                        name="email"
+                        [(ngModel)]="user.email">
+                </div>
+                <div class="container-fluid ">
+                    <label for="password" class="form-label">Password</label>
+                    <input 
+                        type="password"
+                        class="form-control" 
+                        placeholder="password" 
+                        id="password"
+                        name="password"
+                        [(ngModel)]="user.password"
+                     >
+                </div>
+                <div class="container-fluid mt-3">
+                    <input type="submit" class=" form-control btn btn-primary " value="Iniciar Sesion">
+                </div>
+            </form>
         </div>
     </div>
 </div>
