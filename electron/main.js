@@ -1,8 +1,7 @@
 const {app,BrowserWindow,Menu} = require('electron');
 const path = require('path');
+
 require(path.join(__dirname, 'ipc', 'users.ipc.js'));
-
-
 
 process.on('uncaughtException',(error)=>{
   console.error("Unexpected error",error);

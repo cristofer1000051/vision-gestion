@@ -5,6 +5,7 @@ declare global {
     interface HttpAPI {
         get(path: string): Promise<any>;
         post(path: string, body: unknown): Promise<any>;
+        login(path: string, body: unknown): Promise<any>;
     }
     
     interface Window {

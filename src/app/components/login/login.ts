@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 import { User } from '../../models/user.models';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
@@ -16,7 +16,8 @@ export class Login {
   user: User;
   constructor(
     private router: Router,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private zone: NgZone
   ) {
     this.user = new User();
   }
@@ -29,18 +30,23 @@ export class Login {
       );
 
     } else {
-      const api = window.electronAPI;
-      if (api) {
-        const res = await window.electronAPI!.http.post(endPoints.auth.login, this.user);
-        if (!res.success) {
-          const status =  res.status || 'N/A';
-          const message = res.message || 'Error desconocido';
 
-          let msg = 'Error de inicio de sesión';
-          await Swal.fire(msg, `${status} <br> ${message}`, 'error');
-        }
+      const res = await window.electronAPI!.http.login(endPoints.auth.login, this.user);
+      if (!res.success) {
+        const status = res.status || 'N/A';
+        const message = res.message || 'Error desconocido';
+
+        let msg = 'Error de inicio de sesión';
+        await Swal.fire(msg, `${status} <br> ${message}`, 'error');
+
       } else {
-        this.router.navigate(['/home']);
+        console.log("here");
+        this.router.navigate(['/home']).then(success => {
+          console.log("Navigazione riuscita?", success); // Stampa true/false
+          if (!success) {
+            console.error("ERRORE DI ROUTING: navigazione fallita da Angular.");
+          }
+        });
       }
 
     }

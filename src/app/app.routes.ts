@@ -6,9 +6,10 @@ export const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: '/home'
+        // 🚨 CAMBIARE IL REINDIRIZZAMENTO INIZIALE A 'login'
+        redirectTo: 'login'
     },
     { path: 'login', component: Login },
     { path: 'home', component: Dashboard },
-    { path: '**', redirectTo: '/home' }
+    { path: '**', redirectTo: 'login' }
 ];
