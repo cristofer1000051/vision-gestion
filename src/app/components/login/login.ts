@@ -1,10 +1,10 @@
 import { Component, NgZone } from '@angular/core';
-import { User } from '../../models/user.models';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
 import { ActivatedRoute, Router } from '@angular/router';
 import { endPoints } from '../../endpoints/endpoints';
+import { LoginUser } from '../../models/login-user.models';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -13,16 +13,16 @@ import { endPoints } from '../../endpoints/endpoints';
   styleUrls: ['./login.css']
 })
 export class Login {
-  user: User;
+  loginUser: LoginUser;
   constructor(
     private router: Router,
     private route: ActivatedRoute,
     private zone: NgZone
   ) {
-    this.user = new User();
+    this.loginUser = new LoginUser();
   }
   async onSubmit() {
-    if (!this.user.email || !this.user.password) {
+    if (!this.loginUser.email || !this.loginUser.password) {
       Swal.fire(
         'Error de validacion',
         'Username and password are required',
@@ -31,7 +31,7 @@ export class Login {
 
     } else {
 
-      const res = await window.electronAPI!.http.login(endPoints.auth.login, this.user);
+      const res = await window.electronAPI!.http.login(endPoints.auth.login, this.loginUser);
       if (!res.success) {
         const status = res.status || 'N/A';
         const message = res.message || 'Error desconocido';
