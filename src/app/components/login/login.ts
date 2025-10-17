@@ -2,9 +2,10 @@ import { Component, NgZone } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import Swal from 'sweetalert2';
-import { ActivatedRoute, Router } from '@angular/router';
-import { endPoints } from '../../endpoints/endpoints';
+import { Router } from '@angular/router';
 import { LoginUser } from '../../models/login-user.models';
+import { LoginServices } from '../../services/login.services';
+import { endPoints } from '../../endpoints/endpoints';
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -16,8 +17,7 @@ export class Login {
   loginUser: LoginUser;
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
-    private zone: NgZone
+    private loginService: LoginServices,
   ) {
     this.loginUser = new LoginUser();
   }
@@ -31,25 +31,20 @@ export class Login {
 
     } else {
 
-      const res = await window.electronAPI!.http.login(endPoints.auth.login, this.loginUser);
+      const res = await this.loginService.Login(endPoints.auth.login, this.loginUser);
       if (!res.success) {
         const status = res.status || 'N/A';
         const message = res.message || 'Error desconocido';
 
         let msg = 'Error de inicio de sesión';
         await Swal.fire(msg, `${status} <br> ${message}`, 'error');
-
       } else {
-        console.log("here");
         this.router.navigate(['/home']).then(success => {
-          console.log("Navigazione riuscita?", success); // Stampa true/false
           if (!success) {
             console.error("ERRORE DI ROUTING: navigazione fallita da Angular.");
           }
         });
       }
-
     }
   }
-
 }

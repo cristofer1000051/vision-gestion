@@ -57,7 +57,8 @@ async function deleteTokenSecurely() {
 }
 module.exports = {
     saveTokenSecurely,
-    getTokenSecurely
+    getTokenSecurely,
+    deleteTokenSecurely
 };
 
 function getPlainToken() {

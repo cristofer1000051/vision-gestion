@@ -1,7 +1,7 @@
 const path = require('path');
 const { ipcMain, safeStorage } = require('electron');
 //__dirname mi restitura il file fino il file corrente, ovvero non ce bisogno di mettere ipc
-const { saveTokenSecurely, getTokenSecurely } = require(path.join(__dirname, 'security.ipc.js'));
+const { saveTokenSecurely, getTokenSecurely, deleteTokenSecurely } = require(path.join(__dirname, 'security.ipc.js'));
 
 ipcMain.on('message', (event, message) => {
   console.log("Message from Renderer:", message);
@@ -40,6 +40,8 @@ ipcMain.handle('auth:login', async (event, { path, body }) => {
   if (token) {
     const token_ = token.replace("Bearer ", "");
     if (token_) {
+      const authToken = await getTokenSecurely();
+      if (authToken) await deleteTokenSecurely();
       const storeResult = await saveTokenSecurely(token_);
       if (!storeResult.success) {
         console.error('Errore nel salvataggio sicuro del token:', storeResult.message);
@@ -51,10 +53,6 @@ ipcMain.handle('auth:login', async (event, { path, body }) => {
       }
     }
   };
-  ipcMain.handle('auth:logout', async () => {
-    await clearTokenSecurely();
-    return true;
-  });
   /** ############################################################################################# */
   const data = await r.json();
   if (!r.ok) {
@@ -69,7 +67,10 @@ ipcMain.handle('auth:login', async (event, { path, body }) => {
     data: data // Los datos de la respuesta de la API
   };
 });
-
+ipcMain.handle('auth:logout', async () => {
+  await deleteTokenSecurely();
+  return true;
+});
 ipcMain.handle('http:post', async (event, { path, body }) => {
 
   //si fa il recupero del token

@@ -7,7 +7,12 @@ declare global {
         post(path: string, body: unknown): Promise<any>;
         login(path: string, body: unknown): Promise<any>;
     }
-    
+
+    interface ElectronAPI {
+        sendMessage(message: string): void;
+        http: Readonly<HttpAPI>;
+    }
+
     interface Window {
         readonly electronAPI?: Readonly<ElectronAPI>;
     }
