@@ -1,0 +1,72 @@
+<app-menu>
+    <div navbar-extra class="d-flex">
+        <button type="button" class="btn btn-outline-light" data-bs-toggle="modal" data-bs-target="#202510081739">
+            Crear Servicio
+        </button>
+    </div>
+</app-menu>
+<div class="container mt-5 pt-5">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Handle</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th scope="row">1</th>
+                <td>Mark</td>
+                <td>Otto</td>
+                <td>@mdo</td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Jacob</td>
+                <td>Thornton</td>
+                <td>@fat</td>
+            </tr>
+            <tr>
+                <th scope="row">3</th>
+                <td colspan="2">Larry the Bird</td>
+                <td>@twitter</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="modal fade" id="202510081739" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="staticBackdropLabel">Crear servicio</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form action="">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1">Servicio</span>
+                        <input type="text" class="form-control" placeholder="Servicio" aria-label="Servicio"
+                            aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <input type="number" class="form-control" placeholder="costo" aria-label="costo"
+                            aria-describedby="basic-addon2">
+                        <span class="input-group-text" id="basic-addon2">Soles</span>
+                    </div>
+                    <div class="input-group">
+                        <span class="input-group-text">Descripcion</span>
+                        <textarea class="form-control" aria-label="Descripcion"></textarea>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">cerrar</button>
+                <button type="button" class="btn btn-primary">guardar</button>
+            </div>
+        </div>
+    </div>
+</div>

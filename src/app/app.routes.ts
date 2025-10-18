@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { Login } from './components/login/login';
-import { Dashboard } from './components/dashboard/dashboard';
+import { Dashboard } from './components/dashboard_admin/dashboard';
+import { Eduse } from './components/eduse/eduse';
 
 export const routes: Routes = [
     {
@@ -11,5 +12,6 @@ export const routes: Routes = [
     },
     { path: 'login', component: Login },
     { path: 'home', component: Dashboard },
+    { path: 'eduse', component: Eduse },
     { path: '**', redirectTo: 'login' }
 ];

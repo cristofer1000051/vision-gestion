@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -7,5 +8,12 @@ import { Component } from '@angular/core';
   styleUrl: './menu.css'
 })
 export class Menu {
-
+  constructor(private router: Router) {}
+  goToEduse() {
+    this.router.navigate(['/eduse']).then(success => {
+      if (!success) {
+        console.error("ERRORE DI ROUTING: navigazione fallita da Angular.");
+      }
+    });
+  }
 }
