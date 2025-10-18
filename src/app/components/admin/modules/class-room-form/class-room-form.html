@@ -1,0 +1,33 @@
+<form action="">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1">fecha inizio</span>
+        <input type="date" class="form-control" aria-label="dateIni" aria-describedby="basic-addon1">
+        <span class="input-group-text" id="basic-addon1">fecha fin</span>
+        <input type="date" class="form-control" aria-label="dateEnd" aria-describedby="basic-addon1">
+    </div>
+    <ng-content select="[input-202510182345]"></ng-content><!-- Placeholder for additional inputs -->
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon2">Cantidad de Alumnos</span>
+        <input type="number" class="form-control" placeholder="Cantidad Alumnos" aria-label="CantidadAlumnos"
+            aria-describedby="basic-addon2" step="1" min="0">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon2">DNI Profesor</span>
+        <input type="number" class="form-control" placeholder="Ingresar el DNI del Profesor"
+            aria-label="CantidadAlumnos" aria-describedby="basic-addon2" step="1" min="0">
+    </div>
+    <div class="input-group mb-3">
+        <input type="number" class="form-control" placeholder="Ingresar el codigo del servicio"
+            aria-label="Codigo del servicio" aria-describedby="basic-addon2" step="1" min="0">
+        <span class="input-group-text" id="basic-addon2">Codigo Servicio</span>
+    </div>
+    <div class="input-group">
+        <span class="input-group-text">Descripcion</span>
+        <textarea class="form-control" aria-label="Descripcion de la clase"></textarea>
+    </div>
+
+    <div class="input-group d-flex justify-content-between mt-3">
+        <span class="input-group-text flex-grow-1" id="addon-wrapping">Crear nueva clase</span>
+        <button type="submit" class="btn btn btn-success w-25">Enviar</button>
+    </div>
+</form>

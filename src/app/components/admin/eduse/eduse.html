@@ -1,0 +1,65 @@
+<app-menu>
+
+</app-menu>
+<div class="container mt-5 pt-5">
+        <div class="card mt-4">
+        <h5 class="card-header">Modificar servicio existente</h5>
+        <div class="card-body">
+            <div class="input-group">
+                <span class="input-group-text" id="codigoServicio">Código</span>
+                <input type="text" id="codigoServicio" class="form-control" placeholder="Ej: CL123"
+                    aria-label="Código de clase" aria-describedby="codigoServicio">
+                <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#202510081739" (click)="modifyService()">Modificar</button>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="input-group d-flex justify-content-between">
+                <span class="input-group-text flex-grow-1" id="crear-servicio">Crear nuevo servicio</span>
+                <button type="submit" class="btn btn-outline-primary" data-bs-toggle="modal" data-bs-target="#202510081739">Crear</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <div class="card-header">
+            <h4>Lista de servicios</h4>
+        </div>
+        <div class="card-body">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+@if (modifyFlag) {
+    <app-modal-eduse></app-modal-eduse>
+}@else{
+    <app-modal-eduse></app-modal-eduse>
+}

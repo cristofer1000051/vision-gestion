@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Menu } from "../modules/menu/menu";
+import { Menu } from '../modules/menu/menu';
+
 
 @Component({
   selector: 'app-dashboard',

@@ -16,4 +16,11 @@ export class Menu {
       }
     });
   }
+  goToClassRoom(){
+    this.router.navigate(['/class-room']).then(success => {
+      if (!success) {
+        console.error("ERRORE DI ROUTING: navigazione fallita da Angular.");
+      }
+    });
+  }
 }
