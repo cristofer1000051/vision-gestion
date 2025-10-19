@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Menu } from '../modules/menu/menu';
 import { ModalEduse } from "../modules/modal-eduse/modal-eduse";
 
-
 @Component({
   selector: 'app-eduse',
   imports: [Menu, ModalEduse],
@@ -10,11 +9,15 @@ import { ModalEduse } from "../modules/modal-eduse/modal-eduse";
   styleUrl: './eduse.css'
 })
 export class Eduse {
-  modifyFlag: boolean = false;
-  modifyService() {
-    this.modifyFlag = !this.modifyFlag;
+  modalTitle = '';
+  actionLabel = '';
+
+  openModal(action: string) {
+    if(action === 'create') {
+      this.modalTitle = 'Crear servicio';
+    }else if(action === 'modify') {
+      this.modalTitle = 'Modificar servicio';
+    }
   }
-  createService() {
-    this.modifyFlag = !this.modifyFlag;
-  }
+
 }

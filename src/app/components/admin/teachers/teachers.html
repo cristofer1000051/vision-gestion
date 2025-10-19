@@ -1,0 +1,97 @@
+<app-menu></app-menu>
+
+<div class="container mt-2 pt-5">
+    <div class="card mt-5">
+        <div class="card-header">
+            <h4>Gestion de los Profesores</h4>
+        </div>
+    </div>
+
+    <div class="card mt-4">
+        <h5 class="card-header">Modificar Profesores existente</h5>
+        <div class="card-body">
+            <div class="input-group">
+                <span class="input-group-text" id="DNI-span">DNI</span>
+                <input type="text" id="DNI-input" class="form-control" placeholder="Ej: 75413212"
+                    aria-label="Código de clase" aria-describedby="DNI-span">
+                <button type="submit" class="btn btn-outline-primary" (click)="openForm('modify')">Modificar</button>
+            </div>
+        </div>
+
+        <div class="card-body">
+            <div class="input-group d-flex justify-content-between">
+                <span class="input-group-text flex-grow-1" id="crear-profesor-span">Crear nuevo profesor</span>
+                <button type="submit" class="btn btn-outline-success" (click)="openForm('create')">Crear</button>
+                
+                <span class="input-group-text" id="cargar-profesor-span">Cargar lista de profesores</span>
+                <input type="file" class="form-control btn btn-outline-secondary" id="cargar-profesor-input" 
+                    aria-describedby="cargar-profesor-span" aria-label="Upload">
+                <button class="btn btn-outline-primary" type="button" id="cargar-profesor-btn">Cargar</button>
+            </div>
+        </div>
+    </div>
+
+    @if(formVisible){
+    <app-form-teachers [title]="formTitle" [action]="labelAction"
+        (formClosed)="formClosedTeachers()"></app-form-teachers>
+    }
+
+    <div class="card mt-4">
+        <h5 class="card-header">Lista de Profesores</h5>
+        <div class="card-body">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="fecha-inicio-span">fecha inizio</span>
+                <input type="date" class="form-control" aria-label="dateIni" aria-describedby="fecha-inicio-span">
+                
+                <span class="input-group-text" id="fecha-fin-span">fecha fin</span>
+                <input type="date" class="form-control" aria-label="dateEnd" aria-describedby="fecha-fin-span">
+            </div>
+
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="apellido-span">Apellido</span>
+                <input type="text" id="apellido-input" class="form-control" placeholder="Buscar por apellidos"
+                    aria-label="Buscar por apellido" aria-describedby="apellido-span">
+
+                <span class="input-group-text" id="dni-span">DNI</span>
+                <input type="text" id="dni-input" class="form-control" placeholder="Buscar por codigo de DNI"
+                    aria-label="Buscar por DNI" aria-describedby="dni-span">
+
+                <span class="input-group-text" id="codigo-clase-span">Codigo de Clase</span>
+                <input type="text" id="codigo-clase-input" class="form-control" placeholder="Buscar por codigo de clase"
+                    aria-label="buscar por codigo de clase" aria-describedby="codigo-clase-span">
+
+                <button type="submit" class="btn btn-outline-primary">Buscar</button>
+            </div>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">First</th>
+                        <th scope="col">Last</th>
+                        <th scope="col">Handle</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">2</th>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                    </tr>
+                    <tr>
+                        <th scope="row">3</th>
+                        <td colspan="2">Larry the Bird</td>
+                        <td>@twitter</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div class="card mt-4">
+    <div class="card-header d-flex justify-content-between align-items-center">
+        <h5>{{title}}</h5>
+        <button type="button" class="btn-close" aria-label="Close" (click)="formClosedTeachers()"></button>
+    </div>
+    <div class="card-body">
+        <form action="">
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="2025101914500001">Nombre</span>
+                <input type="text" class="form-control" placeholder="Ingresar nombre"
+                    aria-label="Ingresar nombre del estudiante" aria-describedby="INFO-2025101914500001" step="1"
+                    min="0">
+                <span class="input-group-text" id="2025101914500002">Apellido</span>
+                <input type="text" class="form-control" placeholder="Ingresar apellido"
+                    aria-label="Ingresar apellido del estudiante" aria-describedby="INFO-2025101914500002" step="1"
+                    min="0">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="2025101914500003">DNI</span>
+                <input type="number" class="form-control" placeholder="Ingresar DNI"
+                    aria-label="Ingresar El numero de celular" aria-describedby="INFO-2025101914500003">
+                <span class="input-group-text" id="2025101914500005">Celular</span>
+                <input type="number" class="form-control" placeholder="Ingresar numero de celular"
+                    aria-label="Ingresar El numero de celular" aria-describedby="INFO-2025101914500005">
+            </div>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="2025101914500004">Email</span>
+                <input type="text" class="form-control" placeholder="Ingresar correo electronico"
+                    aria-label="Ingresar El numero de celular" aria-describedby="INFO-2025101914500004">
+                <span class="input-group-text" id="2025101914500005">Fecha de nacimiento</span>
+                <input type="date" class="form-control" aria-label="dateIni" aria-describedby="INFO-2025101914500005">
+            </div>
+            <div class="input-group d-flex justify-content-between mt-3">
+                <span class="input-group-text flex-grow-1" id="202510191450000B">Crear nuevo estudiante</span>
+                <button type="submit" class="btn btn btn-success">{{action}}</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -3,7 +3,7 @@
 
 <div class="container mt-2 pt-5">
     <div class="card mt-5 ">
-       <div class="card-header ">
+        <div class="card-header ">
             <h4>Gestion de las clases</h4>
         </div>
 
@@ -15,26 +15,24 @@
                 <span class="input-group-text" id="codigoClase">Código</span>
                 <input type="text" id="codigoClase" class="form-control" placeholder="Ej: CL123"
                     aria-label="Código de clase" aria-describedby="codigoClase">
-                <button type="submit" class="btn btn-outline-primary" >Modificar</button>
+                <button type="submit" class="btn btn-outline-primary" (click)="openForm('modify')">Modificar</button>
             </div>
         </div>
         <div class="card-body">
             <div class="input-group d-flex justify-content-between">
                 <span class="input-group-text flex-grow-1">Crear nueva clase</span>
-                <button type="submit" class="btn btn-outline-primary">Crear</button>
+                <button type="submit" class="btn btn-outline-primary" (click)="openForm('create')">Crear</button>
             </div>
         </div>
     </div>
-
-    <div class="card mt-4">
-        <div class="card-header d-flex justify-content-between align-items-center">
-            <span>Clase virtual</span>
-            <button type="button" class="btn-close" aria-label="Close"></button>
-        </div>
-        <div class="card-body">
-            <app-class-room-form></app-class-room-form>
-        </div>
-    </div>
+    @if(formVisible){
+        <app-class-room-form 
+        [title]="formTitle"
+        [action]="labelAction"
+        (formClosed)="onFormClosed()"
+        ></app-class-room-form>
+    }
+    
     <div class="card mt-4">
         <h5 class="card-header">Lista de clases</h5>
         <div class="card-body">

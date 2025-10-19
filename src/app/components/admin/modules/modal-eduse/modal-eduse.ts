@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
   selector: 'app-modal-eduse',
@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './modal-eduse.css'
 })
 export class ModalEduse {
+  @Input() modalTitle = '';
+  actionLabel = '';
 
 }

@@ -1,17 +1,17 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: 'app-class-room-form',
+  selector: 'app-form-students',
   imports: [],
-  templateUrl: './class-room-form.html',
-  styleUrl: './class-room-form.css'
+  templateUrl: './form-students.html',
+  styleUrl: './form-students.css'
 })
-export class ClassRoomForm {
+export class FormStudents {
   @Input() title : string = '';
   @Input() action : string = '';
   @Output() formClosed = new EventEmitter<void>();
-  
-  closeForm() {
+
+  formClosedStudent() {
     this.formClosed.emit();
   }
 }

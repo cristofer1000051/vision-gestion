@@ -23,4 +23,18 @@ export class Menu {
       }
     });
   }
+  goToStudents(){
+    this.router.navigate(['/students']).then(success => {
+      if (!success) {
+        console.error("ERRORE DI ROUTING: navigazione fallita da Angular.");
+      }
+    });
+  }
+  goToTeachers(){
+    this.router.navigate(['/teachers']).then(success => {
+      if (!success) {
+        console.error("ERRORE DI ROUTING: navigazione fallita da Angular.");
+      }
+    });
+  }
 }
